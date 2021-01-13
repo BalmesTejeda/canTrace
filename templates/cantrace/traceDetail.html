@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Trace{% endblock title %}
+
+{% block content %}
+<h1>Trace Detail</h1>
+<p>{{ object }}</p>
+
+{% for channel in object.channels.all %}
+    <div class="container">
+        <h2>Channel {{ channel }}</a></h2>
+        {% for message in channel.messages.all %}
+        <h3>{{message}}</h3>
+        {% endfor %}
+        <br>
+        <br>
+    </div>
+{% endfor %}
+{% endblock content %}
